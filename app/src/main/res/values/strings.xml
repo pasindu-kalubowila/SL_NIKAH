@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">SL NIKAH</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_customer_email">Enter Customer Email</string>
+    <string name="enter_customer_mobile_no">Enter Customer Mobile No</string>
+    <string name="enter_customer_password">Enter Customer Password</string>
+    <string name="re_enter_customer_password">Re-Enter Customer Password</string>
+    <string name="register">Register</string>
+    <string name="enter_customer_full_name">Enter Customer Full name</string>
+    <string name="customer_register">Customer Register</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="forgot_you_password">Forgot you password?</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome</string>
 </resources>
