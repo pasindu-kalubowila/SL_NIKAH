@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "484361515750",
+    "firebase_url": "https://sl-nikah-2810f.firebaseio.com",
+    "project_id": "sl-nikah-2810f",
+    "storage_bucket": "sl-nikah-2810f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484361515750:android:858fad15ab530740cac127",
+        "android_client_info": {
+          "package_name": "com.slnikah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484361515750-21ll5mukfkh77gjtsl6jdehqi2vlbb0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHTraBI4OneMK-gNPzSMcNv0NGK_QTT-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484361515750-21ll5mukfkh77gjtsl6jdehqi2vlbb0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
