@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.slnikah.Model.Users;
 import com.slnikah.R;
 
 public class Login extends AppCompatActivity {
@@ -81,20 +82,21 @@ public class Login extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snap1 : dataSnapshot.getChildren()) {
-                    for (DataSnapshot snap2 : snap1.getChildren()) {
-                        String parent = snap2.getValue().toString();
-                        if (parent.equals("admin")) {
+                    Users users= (Users) snap1.getValue(Users.class);
+                    if (firebaseUser.getEmail().equals(users.getEmail())){
+                        if (users.getAccess().equals("admin")) {
                             Intent intent = new Intent(Login.this, MainActivity2.class);
                             startActivity(intent);
                             finish();
                             break;
-                        } else if (parent.equals("customer")) {
+                        } else if (users.getAccess().equals("customer")) {
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                             break;
                         }
                     }
+
                 }
             }
 

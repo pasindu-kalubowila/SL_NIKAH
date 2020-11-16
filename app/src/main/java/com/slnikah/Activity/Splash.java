@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.slnikah.Model.Users;
 import com.slnikah.R;
 
 public class Splash extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class Splash extends AppCompatActivity {
             public void run() {
                 if (isNetworkConnected()) {
                     firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-                    if (firebaseUser != null && firebaseUser.isEmailVerified()) {
+                    if (firebaseUser != null) {
                         redirectToHome();
                     } else {
                         Intent intent = new Intent(Splash.this, Login.class);
@@ -55,31 +56,32 @@ public class Splash extends AppCompatActivity {
 
     private void redirectToHome() {
         DatabaseReference reference;
-        reference = FirebaseDatabase.getInstance().getReference();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    if (childSnapshot.child(firebaseUser.getUid()).getValue() != null) {
-                        String parent = childSnapshot.getKey();
-                        if (parent.equals("Admin")) {
+                for (DataSnapshot snap1 : dataSnapshot.getChildren()) {
+                    Users users= (Users) snap1.getValue(Users.class);
+                    if (firebaseUser.getEmail().equals(users.getEmail())){
+                        if (users.getAccess().equals("admin")) {
                             Intent intent = new Intent(Splash.this, MainActivity2.class);
                             startActivity(intent);
                             finish();
                             break;
-                        } else if (parent.equals("Customers")) {
+                        } else if (users.getAccess().equals("customer")) {
                             Intent intent = new Intent(Splash.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                             break;
                         }
                     }
+
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled (@NonNull DatabaseError databaseError){
 
             }
         });

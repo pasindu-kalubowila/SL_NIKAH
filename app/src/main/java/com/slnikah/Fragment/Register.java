@@ -107,6 +107,7 @@ public class Register extends Fragment {
                     hashMap.put("id", userid);
                     hashMap.put("name", str_name);
                     hashMap.put("mobile", str_mobile);
+                    hashMap.put("email", firebaseUser.getEmail());
                     hashMap.put("access", "customer");
                     hashMap.put("imageurl", "https://firebasestorage.googleapis.com/v0/b/sl-nikah-2810f.appspot.com/o/Users%2Ficons8-account-480.png?alt=media&token=ec6feaa1-2733-4c83-9067-e1cd902ef04a");
 
